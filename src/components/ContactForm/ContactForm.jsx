@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../Redux/contactsSlice';
+import { addContact } from '../../redux/contactsSlice';
 import { Container, FormInput, SubmitButton } from './ContactForm.styled';
 
 const ContactForm = () => {

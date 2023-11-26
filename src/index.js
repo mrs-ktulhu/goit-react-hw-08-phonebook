@@ -3,14 +3,14 @@ import { createRoot } from 'react-dom/client';
 import App from 'components/App';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
-import contactsReducer from 'Redux/contactsSlice';
-import filterReducer from 'Redux/filter';
+import contactsReducer from 'redux/contactsSlice';
+import filterReducer from 'redux/filter';
 import './index.css';
 
-axios.defaults.baseURL = "https://65535ad15449cfda0f2e8b81.mockapi.io/contacts/contacts";
-
-
+axios.defaults.baseURL =
+  'https://65535ad15449cfda0f2e8b81.mockapi.io/contacts/contacts';
 
 const store = configureStore({
   reducer: {
@@ -20,7 +20,11 @@ const store = configureStore({
 });
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-        <App />
-       </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter basename="/goit-react-hw-08-phonebook"></BrowserRouter>
+      <App />
+      <BrowserRouter />
+    </Provider>
+  </React.StrictMode>
 );
