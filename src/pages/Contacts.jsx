@@ -1,22 +1,27 @@
+import { Wrap } from 'components/App.styled';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectLoading } from 'redux/tasks/selectors';
 import { fetchContacts } from 'redux/contactsSlice';
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactList from 'components/ContactList/ContactList';
+import Filter from 'components/Filter/Filter';
 
-export default function Contacts() {
+const Contacts = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <>
-        <title>Your contacts</title>
-      <ContactsEditor />
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ContactsList />
-    </>
+    <Wrap>
+      <h1>Phonebook</h1>
+      <ContactForm />
+
+      <h2>Contacts</h2>
+      <Filter />
+      <ContactList/>
+    </Wrap>
   );
 }
+export default Contacts;

@@ -33,7 +33,7 @@ const ContactList = () => {
               key={contact.id}
               id={contact.id}
               text={contact.name}
-              phone={contact.phone}
+              phone={contact.number}
               onDelete={handleDelete}
             />
           ))}
