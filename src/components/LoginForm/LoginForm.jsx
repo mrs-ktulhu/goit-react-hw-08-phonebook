@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { userLogin } from 'redux/AuthOperations';
 import Notiflix from 'notiflix';
 import { Link } from 'react-router-dom';
+import { LoginWrap, LoginBtn, LoginInput } from './LoginForm.styled';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const LoginForm = () => {
     const { email, password } = form.elements;
 
     if (!email.value || !password.value) {
-      Notiflix.Notify.failure('Please, enter your information!',{
+      Notiflix.Notify.failure('Please, enter your information!', {
         position: 'center-top',
         distance: '10px',
       });
@@ -35,29 +36,35 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <LoginWrap>
       <h2>Log in</h2>
-      <form  onSubmit={handleSubmit} autoComplete="off">
-        <label >Email</label>
-        <input
-        
-          type="email"
-          name="email"
-          onChange={handleChange}
-        />
-        <label >Password</label>
-        <input
-        
-          type="password"
-          name="password"
-          onChange={handleChange}
-        />
-        <button  type="submit">
-          Log In
-        </button>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <LoginInput>
+          Email
+          <br />
+          <input type="email" name="email" onChange={handleChange} required />
+        </LoginInput>
+        <br />
+
+        <LoginInput>
+          Password
+          <br />
+          <input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            required
+          />
+        </LoginInput>
+
+        <br />
+
+        <LoginBtn type="submit">Log In</LoginBtn>
       </form>
-      <p >Don't have an account? <Link  to="/register">Register now!</Link> </p>
-    </div>
+      <p>
+        Don't have an account? <Link to="/register">Sign up now!</Link>{' '}
+      </p>
+    </LoginWrap>
   );
 };
 

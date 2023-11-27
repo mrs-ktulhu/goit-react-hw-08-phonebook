@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   display: inline-flex;
+  align-items:center;
   flex-direction: column;
   border: solid 1px black;
   padding: 15px;
@@ -17,4 +18,5 @@ export const FormInput = styled.label`
 
 export const SubmitButton = styled.button`
   cursor: pointer;
+  width:100%;
 `;

@@ -7,6 +7,9 @@ const ContactListItem = ({ id, text, phone }) => {
   const dispatch = useDispatch();
   return (
     <li>
+      <span role="img" aria-label="Contact icon">
+      👤
+      </span>
       <span>{text}</span>:&nbsp;
       <span>{phone}</span>&nbsp;
       <DeleteButton type="button" onClick={() => dispatch(deleteContact(id))}>

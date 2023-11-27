@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
-import { nanoid } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 import { Container, FormInput, SubmitButton } from './ContactForm.styled';
 
@@ -30,18 +29,31 @@ const ContactForm = () => {
 
   return (
     <Container>
-      <FormInput onSubmit={handleSubmit}>
-        <label htmlFor={nanoid()}>
-          Name <br />
-        </label>
-        <input type="text" name="name" title="Enter name" required />
-        <label htmlFor={nanoid()}>
-          Number
+      <form onSubmit={handleSubmit}>
+        <FormInput>
+          Name
           <br />
-        </label>
-        <input type="tel" name="number" title="Enter Number" required />
-        <SubmitButton type="submit">Add contact</SubmitButton>
-      </FormInput>
+          <input
+            type="text"
+            placeholder="Enter name"
+            name="name"
+            required
+          />
+        </FormInput>
+        <br />
+        <FormInput>
+          Phone
+          <br />
+          <input
+            type="tel"
+            placeholder="Enter phone"
+            name="number"
+            required
+          />
+        </FormInput>
+        <br />
+        <SubmitButton type="submit" >Add contact</SubmitButton>
+      </form>
     </Container>
   );
 };
