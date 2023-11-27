@@ -8,7 +8,7 @@ import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import NotFound from 'pages/NotFound';
 
-const Home = lazy(() => import('../pages/Home'));
+const Home = lazy(() => import('../pages/Home/Home'));
 const Register = lazy(() => import('../pages/Register'));
 const Login = lazy(() => import('../pages/Login'));
 const Contacts = lazy(() => import('../pages/Contacts'));
@@ -25,6 +25,7 @@ const App = () => {
       <h1>Refreshing users...</h1>
     </div>
   ) : (
+
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
